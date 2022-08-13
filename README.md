@@ -1,2 +1,2 @@
 # my-current-setup
-My config and dotfiles.
+My current config and dotfiles.
