@@ -1,129 +1,128 @@
-export EDITOR=vim
+#source "$HOME/.cargo/env"
+#bind 'TAB:menu-complete'
 
-[[ $- != *i* ]] && return
+export CHROME_EXECUTABLE=google-chrome-stable
 
-colors() {
-	local fgc bgc vals seq0
-	printf "Color escapes are %s\n" '\e[${value};...;${value}m'
-	printf "Values 30..37 are \e[33mforeground colors\e[m\n"
-	printf "Values 40..47 are \e[43mbackground colors\e[m\n"
-	printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
-	for fgc in {30..37}; do
-		for bgc in {40..47}; do
-			fgc=${fgc#37} # white
-			bgc=${bgc#40} # black
-			vals="${fgc:+$fgc;}${bgc}"
-			vals=${vals%%;}
-			seq0="${vals:+\e[${vals}m}"
-			printf "  %-9s" "${seq0:-(default)}"
-			printf " ${seq0}TEXT\e[m"
-			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
-		done
-		echo; echo
-	done
-}
+alias google-chrome='google-chrome-stable'
 
-[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-
-case ${TERM} in
-	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-		;;
-	screen*)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-		;;
-esac
-
-use_color=true
-
-safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
-match_lhs=""
-[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
-[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
-[[ -z ${match_lhs}    ]] \
-	&& type -P dircolors >/dev/null \
-	&& match_lhs=$(dircolors --print-database)
-[[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
-
-if ${use_color} ; then
-	if type -P dircolors >/dev/null ; then
-		if [[ -f ~/.dir_colors ]] ; then
-			eval $(dircolors -b ~/.dir_colors)
-		elif [[ -f /etc/DIR_COLORS ]] ; then
-			eval $(dircolors -b /etc/DIR_COLORS)
-		fi
-	fi
-else
-	if [[ ${EUID} == 0 ]] ; then
-		PS1='\u@\h \W \$ '
-	else
-		PS1='\u@\h \w \$ '
-	fi
-fi
-
-unset use_color safe_term match_lhs sh
-
-PS1='\[\e[0;1;92m\][\[\e[0;1;92m\]\u\[\e[0;1;92m\]@\[\e[0;1;92m\]\h\[\e[0;1;92m\]: \[\e[0;1;92m\]\w\[\e[0;1;92m\]] \[\e[0;1;92m\]$ \[\e[0m\]'
-
-xhost +local:root > /dev/null 2>&1
-
-shopt -s checkwinsize
-shopt -s expand_aliases
-shopt -s histappend
-
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-alias ls='ls --color=auto'
-alias grep='grep --colour=auto'
-alias egrep='egrep --colour=auto'
-alias fgrep='fgrep --colour=auto'
+####################################
+alias ci='code-insiders .'
+alias code='code-insiders'
+alias spy='node /home/onur/GitHub/spotify-buddylist/example.js'
 alias c='clear'
 alias e='exit'
-alias bitir='kill -9 `jobs -ps`'
-alias ttp='cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy'
-alias kderes='kquitapp5 plasmashell || killall plasmashell && kstart5 plasmashell'
-alias ..='cd ..'
-alias ...='cd ...'
-alias dw='cd /home/onur/Downloads'
 alias d='cd /home/onur/Desktop'
-alias code='code-insiders'
-alias la='ls -a'
-alias ls='ls --color=auto'
-alias ll='ls -la'
-alias l.='ls -d .* --color=auto'
-alias cd..='cd ..'
+alias dw='cd /home/onur/Downloads'
+alias kderes='kquitapp5 plasmashell; kstart5 plasmashell;'
 alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfgcfg'
+alias ...='cd ../..'
+alias ttp='cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy'
+alias connect='ssh root@178.62.222.158'
+alias vpn='openvpn3 session-start --config Downloads/profile-6.ovpn'
+alias bitir='kill -9 `jobs -ps`'
+alias xampp='sudo /opt/lampp/xampp'
+alias ems='source "/home/onur/GitHub/emsdk/emsdk_env.sh"'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias po='poweroff'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#####################################
 
-commit() {
-
-	git add --all;
-	git commit -m $1;
-	git push -u origin main;
-
+iso() {
+    sudo mount -o loop $1 /mnt/iso
 }
+
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+HISTCONTROL=ignoreboth
+
+shopt -s histappend
+
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+shopt -s checkwinsize
+
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+load() {
+    scp $1 root@178.62.222.158:.
+}
+
+send() {
+    echo -e $2 | msmtp -a outlook $1
+}
+
+#PS1='\[\e[0;92m\][\[\e[0;92m\]\u\[\e[0;92m\]@\[\e[0;92m\]\h \[\e[0;92m\]\w\[\e[0;92m\]] \[\e[0;92m\]\$ \[\e[0m\]'
+
+PS1='\[\e[0;92m\][\[\e[0;92m\]\u\[\e[0;92m\]@\[\e[0;92m\]\h \[\e[0;92m\]\W\[\e[0;92m\]] \[\e[0;92m\]\$ \[\e[0m\]'
+
+unset color_prompt force_color_prompt
+
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+export PATH=$PATH:/usr/local/go/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# . "$HOME/.cargo/env"
+
+ara() {
+  google-chrome-stable "https://www.google.com/search?q=$1"
+}
+
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /home/onur/node_modules/tabtab/.completions/electron-forge.bash ] && . /home/onur/node_modules/tabtab/.completions/electron-forge.bash

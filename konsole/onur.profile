@@ -1,12 +1,14 @@
 [Appearance]
 ColorScheme=Breeze
-Font=Fira Code Retina,13,-1,5,53,0,0,0,0,0,Regular
+Font=Fira Code Medium,15,-1,5,57,0,0,0,0,0,Regular
+LineSpacing=0
 
 [Cursor Options]
-CursorShape=2
+CursorShape=1
 
 [General]
-Name=onur
+Command=/bin/bash
+Name=Onur
 Parent=FALLBACK/
 ShowTerminalSizeHint=false
 TerminalCenter=true

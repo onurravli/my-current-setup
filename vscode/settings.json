@@ -1,47 +1,89 @@
 {
+  "extensions.verifySignature": "false",
   "workbench.startupEditor": "none",
   "window.titleBarStyle": "custom",
+  "editor.fontLigatures": true,
   "editor.fontFamily": "Fira Code",
   "editor.fontSize": 17,
-  "editor.fontWeight": "500",
+  "editor.fontWeight": 600,
   "terminal.integrated.fontFamily": "Fira Code",
   "terminal.integrated.fontSize": 17,
-  "terminal.integrated.fontWeight": "500",
-  "terminal.integrated.fontWeightBold": "600",
+  "terminal.integrated.fontWeight": 600,
+  "terminal.integrated.fontWeightBold": 600,
   "files.autoSave": "afterDelay",
-  "editor.padding.top": 10,
-  "editor.bracketPairColorization.enabled": false,
+  "files.autoSaveDelay": 0,
+  "editor.cursorBlinking": "expand",
   "terminal.integrated.cursorBlinking": true,
-  "editor.cursorBlinking": "smooth",
   "terminal.integrated.cursorStyle": "line",
-  "editor.cursorSmoothCaretAnimation": true,
-  "workbench.list.smoothScrolling": true,
-  "editor.smoothScrolling": true,
   "code-runner.ignoreSelection": true,
+  "code-runner.clearPreviousOutput": true,
   "code-runner.runInTerminal": true,
-  "code-runner.showExecutionMessage": false,
   "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "editor.tabSize": 2,
   "C_Cpp.clang_format_fallbackStyle": "Google",
   "C_Cpp.clang_format_style": "Google",
   "C_Cpp.formatting": "vcFormat",
   "C_Cpp.vcFormat.newLine.beforeElse": false,
-  //"clang-format.fallbackStyle": "Google",
-  "terminal.integrated.persistentSessionReviveProcess": "never",
-  "breadcrumbs.enabled": false,
-  "editor.fontLigatures": true,
+  "editor.formatOnType": true,
+  "editor.bracketPairColorization.enabled": false,
   "editor.tabCompletion": "on",
-  "security.workspace.trust.untrustedFiles": "open",
-  "workbench.iconTheme": "eq-material-theme-icons",
-  "material-icon-theme.showWelcomeMessage": false,
-  "workbench.colorTheme": "Default Light+",
-  "terminal.integrated.smoothScrolling": true,
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "liveServer.settings.donotShowInfoMsg": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.inlineSuggest.enabled": true,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "github.copilot.enable": {
+    "*": false,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false,
+    "python": true,
+    "cpp": true
   },
-  "code-runner.saveAllFilesBeforeRun": true,
-  "code-runner.saveFileBeforeRun": true
+  "editor.largeFileOptimizations": false,
+  "php.validate.executablePath": "/opt/lampp/bin/php",
+  "html.autoCreateQuotes": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.cursorSmoothCaretAnimation": true,
+  "workbench.list.smoothScrolling": true,
+  "editor.smoothScrolling": true,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh"
+    },
+    "fish": {
+      "path": "fish"
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "editor.minimap.renderCharacters": false,
+  "editor.padding.top": 20,
+  "editor.minimap.scale": 2,
+  "[python]": {},
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "[dart]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [90],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "workbench.colorTheme": "Default Light+",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
