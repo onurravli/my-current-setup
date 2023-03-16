@@ -1,39 +1,43 @@
 [
-    {
-      "key": "numpad_separator",
-      "command": "workbench.action.terminal.new"
-    },
-    {
-      "key": "ctrl+numpad_multiply",
-      "command": "code-runner.run"
-    },
-    {
-      "key": "ctrl+alt+n",
-      "command": "-code-runner.run"
-    },
-    {
-      "key": "ctrl+v",
-      "command": "workbench.action.terminal.paste",
-      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-      "key": "ctrl+shift+v",
-      "command": "-workbench.action.terminal.paste",
-      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-      "key": "ctrl+c",
-      "command": "workbench.action.terminal.copySelection",
-      "when": "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected"
-    },
-    {
-      "key": "ctrl+shift+c",
-      "command": "-workbench.action.terminal.copySelection",
-      "when": "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected"
-    },
-    {
-      "key": "shift+enter",
-      "command": "-python.execSelectionInTerminal",
-      "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
-    }
-  ]
+	{
+		"key": "numpad_separator",
+		"command": "workbench.action.terminal.new"
+	},
+	{
+		"key": "ctrl+numpad_multiply",
+		"command": "code-runner.run"
+	},
+	{
+		"key": "ctrl+alt+n",
+		"command": "-code-runner.run"
+	},
+	{
+		"key": "ctrl+v",
+		"command": "workbench.action.terminal.paste",
+		"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+	},
+	{
+		"key": "ctrl+shift+v",
+		"command": "-workbench.action.terminal.paste",
+		"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+	},
+	{
+		"key": "ctrl+c",
+		"command": "workbench.action.terminal.copySelection",
+		"when": "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected"
+	},
+	{
+		"key": "ctrl+shift+c",
+		"command": "-workbench.action.terminal.copySelection",
+		"when": "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected"
+	},
+	{
+		"key": "shift+enter",
+		"command": "-python.execSelectionInTerminal",
+		"when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+	},
+	{
+		"key": "ctrl+alt+b",
+		"command": "workbench.action.toggleAuxiliaryBar"
+	}
+]

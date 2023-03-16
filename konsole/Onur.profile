@@ -1,13 +1,17 @@
 [Appearance]
+BoldIntense=false
 ColorScheme=Breeze
-Font=Fira Code Medium,15,-1,5,57,0,0,0,0,0,Regular
+EmojiFont=Noto Color Emoji,17,-1,5,50,0,0,0,0,0
+Font=Fira Code Retina,15,-1,5,50,0,0,0,0,0
 LineSpacing=0
+WordMode=false
 
 [Cursor Options]
-CursorShape=1
+CursorShape=2
 
 [General]
 Command=/bin/bash
+DimWhenInactive=false
 Name=Onur
 Parent=FALLBACK/
 ShowTerminalSizeHint=false
@@ -20,3 +24,5 @@ ScrollBarPosition=2
 
 [Terminal Features]
 BlinkingCursorEnabled=true
+VerticalLine=false
+VerticalLineAtChar=100
