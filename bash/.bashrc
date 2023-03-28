@@ -1,4 +1,4 @@
-#source "/home/onur/.cargo/env"
+source "/home/onur/.cargo/env"
 export CHROME_EXECUTABLE='brave'
 export PATH="$PATH:/opt/lampp/bin:/usr/local/go/bin"
 export EDITOR="vim"
@@ -160,3 +160,5 @@ ex ()
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+. "$HOME/.cargo/env"
+export GPG_TTY=$(tty)
